@@ -1,0 +1,4 @@
+# Kernel name and version
+Linux hossein-simchi-NUC8i7BEH 6.17.0-23-generic #23~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue Apr 14 16:11:48 UTC 2 x86_64 x86_64 x86_64 GNU/Linux
+# Architecture
+x86_64

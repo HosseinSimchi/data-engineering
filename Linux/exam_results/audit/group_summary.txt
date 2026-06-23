@@ -1,0 +1,7 @@
+# First 3 lines of /etc/group
+root:x:0:
+daemon:x:1:
+bin:x:2:
+# Last 2 lines of /etc/group
+snapd-range-524288-root:x:524288:
+snap_daemon:x:584788:
