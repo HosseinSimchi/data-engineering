@@ -1,0 +1,24 @@
+services:
+  producer:
+    build: ./producer
+    container_name: producer
+    environment:
+      - LOG_FILE=/data/app.log
+      - INTERVAL=2
+    volumes:
+      - shared-data:/data
+
+  consumer:
+    build: ./consumer
+    container_name: consumer
+    environment:
+      - LOG_FILE=/data/app.log
+      - ALERT_FILE=/data/alerts.log
+      - POLL_INTERVAL=1
+    volumes:
+      - shared-data:/data
+    depends_on:
+      - producer
+
+volumes:
+  shared-data:

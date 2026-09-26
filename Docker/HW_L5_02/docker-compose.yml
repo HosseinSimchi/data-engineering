@@ -1,0 +1,20 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: shop-postgres
+    restart: unless-stopped
+    environment:
+      - POSTGRES_DB=shop_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5433:5432"
+    volumes:
+      # اسکریپت‌های داخل این پوشه به ترتیب حروف الفبا (01, 02, 03)
+      # فقط در اولین بار بالا آمدن کانتینر (وقتی دیتابیس خالی است) اجرا می‌شوند
+      - ./sql:/docker-entrypoint-initdb.d:ro
+      # داده‌ها روی این volume باقی می‌مانند تا با هر بار "up" از نو ساخته نشوند
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
